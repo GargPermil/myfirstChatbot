@@ -47,6 +47,8 @@ def fetch_reply(msg, sessionId):
             "Pink Line" : "Majlis Park, Azadpur, Shalimar Bagh, Netaji Subhash Place, Shakurpur, Punjabi Bagh West, ESI Hospital, Rajouri Garden, Mayapuri, Naraina Vihar, Delhi Cantt, South Campus, Sir Vishveshwaraiah Moti Bagh, Bhikaji Cama Place, Sarojini Nagar, INA, South Extension, Lajpat Nagar, Vinoba Puri, Ashram, Hazrat Nizamuddin, Mayur Vihar, Mayur Vihar Pocket I, Trilokpuri-Sanjay Lake, Vinod Nagar, East-Mayur Vihar-II, Mandawali-West Vinod Nagar, IP Extension, Anand Vihar, Karkarduma, Krishna Nagar, East Azad Nagar, Welcome, Jaffrabad, Maujpur, Gokulpuri Johri Enclave, Shiv Vihar",
             "Magenta line" : "Janakpuri West, Dabri Mor, Dashrath Puri, Palam, Sadar Bazaar, Cantonment Terminal 1-IGI Airport, Shankar Vihar, Vasant Vihar, Munirka, R.K Puram, IIT Delhi, Hauz Khas, Panchsheel Park, Chirag Delhi, Greater Kailash, Nehru Enclave, Kalkaji Mandir, Okhla NSIC, Sukhdev Vihar, Jamia Millia Islamia, Okhla Vihar, Jasola Vihar Shaleen Bagh, Kalindi Kunj, Okhla Bird Sanctuary, Botanical Garden"
         }
+        print("parameters")
+        print(response.parameters)
         return Stations[response.parameters.get("LineColor")]
 
 
