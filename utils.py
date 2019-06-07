@@ -49,6 +49,7 @@ def fetch_reply(msg, sessionId):
         }
         print("parameters")
         print(response.parameters)
+        print(response.parameters["LineColor"])
         return Stations[response.parameters.get("LineColor")]
 
 
