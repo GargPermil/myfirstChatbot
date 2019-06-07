@@ -3,4 +3,3 @@ twilio
 pymongo
 dialogflow
 dnspython
-dialogflow_v2
