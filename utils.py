@@ -29,11 +29,18 @@ def fetch_reply(response):
             "Pink Line" : "Majlis Park, Azadpur, Shalimar Bagh, Netaji Subhash Place, Shakurpur, Punjabi Bagh West, ESI Hospital, Rajouri Garden, Mayapuri, Naraina Vihar, Delhi Cantt, South Campus, Sir Vishveshwaraiah Moti Bagh, Bhikaji Cama Place, Sarojini Nagar, INA, South Extension, Lajpat Nagar, Vinoba Puri, Ashram, Hazrat Nizamuddin, Mayur Vihar, Mayur Vihar Pocket I, Trilokpuri-Sanjay Lake, Vinod Nagar, East-Mayur Vihar-II, Mandawali-West Vinod Nagar, IP Extension, Anand Vihar, Karkarduma, Krishna Nagar, East Azad Nagar, Welcome, Jaffrabad, Maujpur, Gokulpuri Johri Enclave, Shiv Vihar",
             "Magenta line" : "Janakpuri West, Dabri Mor, Dashrath Puri, Palam, Sadar Bazaar, Cantonment Terminal 1-IGI Airport, Shankar Vihar, Vasant Vihar, Munirka, R.K Puram, IIT Delhi, Hauz Khas, Panchsheel Park, Chirag Delhi, Greater Kailash, Nehru Enclave, Kalkaji Mandir, Okhla NSIC, Sukhdev Vihar, Jamia Millia Islamia, Okhla Vihar, Jasola Vihar Shaleen Bagh, Kalindi Kunj, Okhla Bird Sanctuary, Botanical Garden"
         }
-        return Stations[response.parameters["LineColor"]]
+        NoStations = str(40)
+        LineLength = "70 Kms"
+        FirstTime = "5.30 AM"
+        LastTime = "11.40 PM"
+        return "{}\nTotal Stations : {}\nLine Length : {}\nFirst Time : {}, Last Time: {}\n\nStations\n{}".format(
+            NoStations, LineLength, FirstTime, LastTime, Stations[response.parameters["LineColor"]])
     elif response.intent.display_name == 'Fare':
         print(response.parameters)
         if response.parameters["SourceStation"] != "" and response.parameters["DestinationStation"] != "":
-            return "Fare from {} to {} is 10\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"])
+            #retrieve fare
+            fare = str("10")
+            return "Fare from {} to {} is {}\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"], fare)
         else:
             return response.fulfillment_text
     else:
