@@ -6,15 +6,6 @@ import dialogflow_v2 as dialogflow
 dialogflow_session_client = dialogflow.SessionsClient()
 PROJECT_ID = "agent-prg-ssweyk"
 
-def get_news(parameters):
-    print(parameters)
-    #client.topic = parameters.get('type')
-    #client.language = parameters.get('language')
-    #client.location = parameters.get('geo-country')
-    print("getting news")
-    return client.get_news()
-
-
 def detect_intent_from_text(text, session_id, language_code='en'):
     session = dialogflow_session_client.session_path(PROJECT_ID, session_id)
     text_input = dialogflow.types.TextInput(text=text, language_code=language_code)
@@ -23,19 +14,10 @@ def detect_intent_from_text(text, session_id, language_code='en'):
     response = dialogflow_session_client.detect_intent(session=session, query_input=query_input)
     return response.query_result
 
-def fetch_reply(msg, sessionId):
-    print("called fetch reply")
-    response = detect_intent_from_text(msg, sessionId)
-
+def fetch_reply(response):
     if response.intent.display_name == 'Map':
         res_Str = "Here is your map\n\n\n"
         return res_Str
-        #news = get_news(dict(response.parameters))
-        #news_str = 'Here is your news:'
-        #print("Building Response")
-        #for row in news:
-        #    news_str += "\n\n{}\n\n{}\n\n".format(row['title'], row['link'])
-        #return news_str
     elif response.intent.display_name == 'LineColor':
         Stations = {
             "Red Line": "Shaheed Sthal (New Bus Adda), Hindon River, Arthala, Mohan Nagar, Shyam Park, Major Mohit Sharma, Rajender Nagar, Raj Bagh, Shahid Nagar, Dilshad Garden, Jhilmil, Mansarovar Park, Shahdara, Welcome, Seelampur, Shastri Park, Kashmere Gate, Tis Hazari, Pul Bangash, Pratap Nagar, Shastri Nagar, Inderlok, Kanhiya Nagar, Keshav Puram, Netaji Subhash Place, Kohat Enclave, Pitam Pura, Rohini East, Rohini West, Rithala",
@@ -52,9 +34,7 @@ def fetch_reply(msg, sessionId):
         print(response.fulfillment_text)
         return response.fulfillment_text
 
-
-def intent_Type(msg, sessionId):
+def reply(msg, sessionId):
     print("called fetch reply")
     response = detect_intent_from_text(msg, sessionId)
-
-    return response.intent.display_name
+    return fetch_reply(response), response.intent.display_name

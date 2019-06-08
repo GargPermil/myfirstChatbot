@@ -18,10 +18,11 @@ def sms():
 	print("reading message")
 	# Create reply
 	resp = MessagingResponse()
-	if utils.intent_Type(msg, sender) == "Map":
-		resp.message(utils.fetch_reply(msg, sender)).media("http://www.delhimetrotimes.in/maps/delhi-metro-rail-map.jpg")
+	message_reply, intent_Type = utils.reply(msg, sender)
+	if intent_Type == "Map":
+		resp.message(message_reply).media("http://www.delhimetrotimes.in/maps/delhi-metro-rail-map.jpg")
 	else:
-		resp.message(utils.fetch_reply(msg, sender))
+		resp.message(message_reply)
 	print("replied")
 	return str(resp)
 
