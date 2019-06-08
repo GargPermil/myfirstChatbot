@@ -30,8 +30,9 @@ def fetch_reply(response):
             "Magenta line" : "Janakpuri West, Dabri Mor, Dashrath Puri, Palam, Sadar Bazaar, Cantonment Terminal 1-IGI Airport, Shankar Vihar, Vasant Vihar, Munirka, R.K Puram, IIT Delhi, Hauz Khas, Panchsheel Park, Chirag Delhi, Greater Kailash, Nehru Enclave, Kalkaji Mandir, Okhla NSIC, Sukhdev Vihar, Jamia Millia Islamia, Okhla Vihar, Jasola Vihar Shaleen Bagh, Kalindi Kunj, Okhla Bird Sanctuary, Botanical Garden"
         }
         return Stations[response.parameters["LineColor"]]
-    elif response.intent.display_name == 'LineColor':
-        return "10\nMinimum Fare : 10\nMaximum Fare : 50 / 60"
+    elif response.intent.display_name == 'Fare':
+        print(response.parameters)
+        return "Fare from {} to {} is 10\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"])
     else:
         print(response.fulfillment_text)
         return response.fulfillment_text
