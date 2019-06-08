@@ -36,7 +36,7 @@ def fetch_reply(msg, sessionId):
         #for row in news:
         #    news_str += "\n\n{}\n\n{}\n\n".format(row['title'], row['link'])
         #return news_str
-    else:
+    elif response.intent.display_name == 'LineColor':
         Stations = {
             "Red Line": "Shaheed Sthal (New Bus Adda), Hindon River, Arthala, Mohan Nagar, Shyam Park, Major Mohit Sharma, Rajender Nagar, Raj Bagh, Shahid Nagar, Dilshad Garden, Jhilmil, Mansarovar Park, Shahdara, Welcome, Seelampur, Shastri Park, Kashmere Gate, Tis Hazari, Pul Bangash, Pratap Nagar, Shastri Nagar, Inderlok, Kanhiya Nagar, Keshav Puram, Netaji Subhash Place, Kohat Enclave, Pitam Pura, Rohini East, Rohini West, Rithala",
             "Yellow Line" : "Siraspur, Samaypur Badli, Rohini Sector 18/19, Haiderpur, Jahangirpuri, Adarsh Nagar, Azadpur, Model Town, GTB Nagar, Vishwa Vidyalaya, Vidhan Sabha, Civil Lines, Kashmere Gate, Chandni Chowk, Chawri Bazar, New Delhi, Rajiv Chowk, Patel Chowk, Central Secretariat, Udyog Bhawan, Lok Kalyan Marg, Jor Bagh INA, AIIMS, Green Park, Hauz Khas, Malviya Nagar, Saket, Qutab Minar, Chhatarpur, Sultanpur, Ghitorni, Arjan Garh, Guru Dronacharya, Sikandarpur, MG Road, IFFCO Chowk, HUDA City Centre",
@@ -47,10 +47,9 @@ def fetch_reply(msg, sessionId):
             "Pink Line" : "Majlis Park, Azadpur, Shalimar Bagh, Netaji Subhash Place, Shakurpur, Punjabi Bagh West, ESI Hospital, Rajouri Garden, Mayapuri, Naraina Vihar, Delhi Cantt, South Campus, Sir Vishveshwaraiah Moti Bagh, Bhikaji Cama Place, Sarojini Nagar, INA, South Extension, Lajpat Nagar, Vinoba Puri, Ashram, Hazrat Nizamuddin, Mayur Vihar, Mayur Vihar Pocket I, Trilokpuri-Sanjay Lake, Vinod Nagar, East-Mayur Vihar-II, Mandawali-West Vinod Nagar, IP Extension, Anand Vihar, Karkarduma, Krishna Nagar, East Azad Nagar, Welcome, Jaffrabad, Maujpur, Gokulpuri Johri Enclave, Shiv Vihar",
             "Magenta line" : "Janakpuri West, Dabri Mor, Dashrath Puri, Palam, Sadar Bazaar, Cantonment Terminal 1-IGI Airport, Shankar Vihar, Vasant Vihar, Munirka, R.K Puram, IIT Delhi, Hauz Khas, Panchsheel Park, Chirag Delhi, Greater Kailash, Nehru Enclave, Kalkaji Mandir, Okhla NSIC, Sukhdev Vihar, Jamia Millia Islamia, Okhla Vihar, Jasola Vihar Shaleen Bagh, Kalindi Kunj, Okhla Bird Sanctuary, Botanical Garden"
         }
-        print("parameters")
-        print(response.parameters)
-        print(response.parameters["LineColor"])
         return Stations[response.parameters["LineColor"]]
+    else:
+        response.fulfillment_text
 
 
 def intent_Type(msg, sessionId):
