@@ -86,7 +86,7 @@ def fetch_reply(response):
             }
         }
 
-        return "{}\nTotal Stations : {}\nLine Length : {}\nFirst Time : {}, Last Time: {}\n\nStations\n{}".format(
+        return "{}\nTotal Stations : {}\nLine Length : {}\nFirst Time : {}\nLast Time: {}\n\nStations\n{}".format(
             Information[response.parameters["LineColor"]]["Name"], Information[response.parameters["LineColor"]]["NoStations"],
             Information[response.parameters["LineColor"]]["LineLength"], Information[response.parameters["LineColor"]]["FirstTime"],
             Information[response.parameters["LineColor"]]["LastTime"], Information[response.parameters["LineColor"]]["Stations"]
