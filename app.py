@@ -21,6 +21,8 @@ def sms():
 	message_reply, intent_Type = utils.reply(msg, sender)
 	if intent_Type == "Map":
 		resp.message(message_reply).media("http://www.delhimetrotimes.in/maps/delhi-metro-rail-map.jpg")
+	elif intent_Type == "Directory":
+		resp.message(message_reply).media("http://www.delhimetrorail.com/otherdocuments/900/directory_24818.pdf")
 	else:
 		resp.message(message_reply)
 	print("replied")
