@@ -24,6 +24,7 @@ def sms():
 	if msg.lower() == "repeat":
 		#fetch last msg
 		msg = database.fetchQuery(sender)
+	print(msg)
 	message_reply, intent_Type = utils.reply(msg, sender)
 	if intent_Type == "Map":
 		resp.message(message_reply).media("http://www.delhimetrotimes.in/maps/delhi-metro-rail-map.jpg")
