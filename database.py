@@ -26,7 +26,7 @@ def insertData(Name, MobNo):
 	return str(count.inserted_id)
 
 def fetchQuery(sender):
-	return records.find(
+	return records.find({
 		"Sender" : sender,
 	}).sort("Timestamp", pymongo.DESCENDING)[0]
 
