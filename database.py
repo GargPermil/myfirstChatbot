@@ -28,7 +28,7 @@ def insertData(Name, MobNo):
 def fetchQuery(sender):
 	return records.find({
 		"Sender" : sender,
-	}).sort("Timestamp", pymongo.DESCENDING)[0]
+	}).sort("Timestamp", pymongo.DESCENDING)
 
 def insertQuery(Msg, MobNo):
 	count = records.insert_one({
