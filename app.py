@@ -17,15 +17,18 @@ def sms():
 	sender = request.form.get('From')
 	print("reading message")
 
-	print("Storing query in database")
-	database.insertData(msg, sender)
 	# Create reply
 	resp = MessagingResponse()
 	if msg.lower() == "repeat":
 		#fetch last msg
 		result = database.fetchQuery(sender)
+		result = list(result)
 		print(result)
-		msg = result
+		msg = result[0]
+	else:
+		print("Storing query in database")
+		database.insertQuery(msg, sender)
+	
 	print(msg)
 	message_reply, intent_Type = utils.reply(msg, sender)
 	if intent_Type == "Map":
