@@ -1,7 +1,7 @@
 import pymongo
 import datetime
 
-client = MongoClient("mongodb+srv://bot:Nagarro190607@cluster0-olpok.mongodb.net/test?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://bot:Nagarro190607@cluster0-olpok.mongodb.net/test?retryWrites=true&w=majority")
 db = client.get_database("Preferences")
 information_records = db.get_collection("Information")
 records = db.get_collection("Preferences")
