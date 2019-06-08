@@ -9,8 +9,10 @@ def count():
 	print(records.count_documents({}))
 	return "The count of records " + str(records.count_documents({}))
 
+def findInformation(Line):
+	return records.find_one({"Name" : Line})
+
 def insertData(Name, MobNo):
-	records.find
 	count = records.insert_one({
 		"Name" : "Permil Garg",
 		"MobileNo" : "+919953905068",
