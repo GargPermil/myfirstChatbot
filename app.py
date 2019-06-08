@@ -24,8 +24,8 @@ def sms():
 		result = database.fetchQuery(sender)
 		result = list(result)
 		print(result)
-		msg = result[0]
-		print(msg)
+		msg = result[0]["Query"]
+		print("Query retrived from database")
 	else:
 		print("Storing query in database")
 		database.insertQuery(msg, sender)
