@@ -99,6 +99,9 @@ def fetch_reply(response):
             return "Fare from {} to {} is {}\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"], fare)
         else:
             return response.fulfillment_text
+    elif response.intent.display_name == 'Directory':
+        rtn_Str = "Here is your directory"
+        return rtn_Str
     else:
         print(response.fulfillment_text)
         return response.fulfillment_text
