@@ -1,4 +1,4 @@
-from pymongo
+import pymongo
 import datetime
 
 client = MongoClient("mongodb+srv://bot:Nagarro190607@cluster0-olpok.mongodb.net/test?retryWrites=true&w=majority")
