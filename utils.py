@@ -32,7 +32,10 @@ def fetch_reply(response):
         return Stations[response.parameters["LineColor"]]
     elif response.intent.display_name == 'Fare':
         print(response.parameters)
-        return "Fare from {} to {} is 10\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"])
+        if response.parameters["SourceStation"] != "" and response.parameters["DestinationStation"] != "":
+            return "Fare from {} to {} is 10\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"])
+        else:
+            return response.fulfillment_text
     else:
         print(response.fulfillment_text)
         return response.fulfillment_text
