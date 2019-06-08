@@ -73,4 +73,4 @@ def updateTiming(Timing):
 			"UpdateTimestamp" : str(datetime.datetime.utcnow())
 	}})
 	print(count.modified_count)
-	return str(count.modified_count)
+return str(count.modified_count)
