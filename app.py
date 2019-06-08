@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template
 from twilio.twiml.messaging_response import MessagingResponse
 import utils
-
+import database
 
 app = Flask(__name__)
 
@@ -16,8 +16,14 @@ def sms():
 	msg = request.form.get('Body')
 	sender = request.form.get('From')
 	print("reading message")
+
+	print("Storing query in database")
+	database.insertData(msg, sender)
 	# Create reply
 	resp = MessagingResponse()
+	if msg.lower() == "repeat":
+		#fetch last msg
+		msg = database.fetchQuery(sender)
 	message_reply, intent_Type = utils.reply(msg, sender)
 	if intent_Type == "Map":
 		resp.message(message_reply).media("http://www.delhimetrotimes.in/maps/delhi-metro-rail-map.jpg")

@@ -25,6 +25,21 @@ def insertData(Name, MobNo):
 	print(count.inserted_id)
 	return str(count.inserted_id)
 
+def fetchQuery(sender):
+	return records.find_one({
+		"Sender" : sender,
+	})
+
+def insertQuery(Msg, MobNo):
+	count = records.insert_one({
+		"Query" : Msg,
+		"Sender" : MobNo,
+		"Timestamp" : str(datetime.datetime.utcnow())
+		})
+	print(count.inserted_id)
+	return str(count.inserted_id)
+
+
 def updateSource(Source):
 	count = records.update_one({
 		"MobileNo" : "+919953905068"

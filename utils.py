@@ -30,7 +30,11 @@ def fetch_reply(response):
         if response.parameters["SourceStation"] != "" and response.parameters["DestinationStation"] != "":
             #retrieve fare
             fare = str("10")
-            return "Fare from {} to {} is {}\nMinimum Fare : 10\nMaximum Fare : 50 / 60".format(response.parameters["SourceStation"], response.parameters["DestinationStation"], fare)
+            MinFare = "10"
+            MaxFare = "50 / 60"
+            return "Fare from {} to {} is {}\nMinimum Fare : {}\nMaximum Fare : {}".format(
+                response.parameters["SourceStation"], response.parameters["DestinationStation"], fare, MinFare, MaxFare
+                )
         else:
             return response.fulfillment_text
     elif response.intent.display_name == 'Directory':
