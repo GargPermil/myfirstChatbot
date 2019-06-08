@@ -3,6 +3,7 @@ import datetime
 
 client = MongoClient("mongodb+srv://bot:Nagarro190607@cluster0-olpok.mongodb.net/test?retryWrites=true&w=majority")
 db = client.get_database("Preferences")
+information_records = db.get_collection("Information")
 records = db.get_collection("Preferences")
 
 def count():
@@ -10,7 +11,7 @@ def count():
 	return "The count of records " + str(records.count_documents({}))
 
 def findInformation(Line):
-	return records.find_one({"Name" : Line})
+	return information_records.find_one({"Name" : Line})
 
 def insertData(Name, MobNo):
 	count = records.insert_one({
