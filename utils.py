@@ -21,7 +21,7 @@ def detect_intent_from_text(text, session_id, language_code='en'):
     query_input = dialogflow.types.QueryInput(text=text_input)
     print("detecting intent")
     response = dialogflow_session_client.detect_intent(session=session, query_input=query_input)
-    return response.query_rfullfillmentesult
+    return response.query_result
 
 def fetch_reply(msg, sessionId):
     print("called fetch reply")
