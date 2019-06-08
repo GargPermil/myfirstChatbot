@@ -34,7 +34,8 @@ def fetch_reply(response):
         FirstTime = "5.30 AM"
         LastTime = "11.40 PM"
         return "{}\nTotal Stations : {}\nLine Length : {}\nFirst Time : {}, Last Time: {}\n\nStations\n{}".format(
-            NoStations, LineLength, FirstTime, LastTime, Stations[response.parameters["LineColor"]])
+            response.parameters["LineColor"], NoStations, LineLength, FirstTime, LastTime,
+            Stations[response.parameters["LineColor"]])
     elif response.intent.display_name == 'Fare':
         print(response.parameters)
         if response.parameters["SourceStation"] != "" and response.parameters["DestinationStation"] != "":
