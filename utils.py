@@ -21,7 +21,7 @@ def detect_intent_from_text(text, session_id, language_code='en'):
     query_input = dialogflow.types.QueryInput(text=text_input)
     print("detecting intent")
     response = dialogflow_session_client.detect_intent(session=session, query_input=query_input)
-    return response.query_result
+    return response.query_rfullfillmentesult
 
 def fetch_reply(msg, sessionId):
     print("called fetch reply")
@@ -49,7 +49,8 @@ def fetch_reply(msg, sessionId):
         }
         return Stations[response.parameters["LineColor"]]
     else:
-        response.fulfillment_text
+        print(response.fulfillment_text)
+        return response.fulfillment_text
 
 
 def intent_Type(msg, sessionId):
