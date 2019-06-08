@@ -23,7 +23,9 @@ def sms():
 	resp = MessagingResponse()
 	if msg.lower() == "repeat":
 		#fetch last msg
-		msg = database.fetchQuery(sender)
+		result = database.fetchQuery(sender)
+		print(result)
+		msg = result
 	print(msg)
 	message_reply, intent_Type = utils.reply(msg, sender)
 	if intent_Type == "Map":

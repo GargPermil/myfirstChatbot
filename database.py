@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from pymongo
 import datetime
 
 client = MongoClient("mongodb+srv://bot:Nagarro190607@cluster0-olpok.mongodb.net/test?retryWrites=true&w=majority")
@@ -26,9 +26,9 @@ def insertData(Name, MobNo):
 	return str(count.inserted_id)
 
 def fetchQuery(sender):
-	return records.find_one({
+	return records.find(
 		"Sender" : sender,
-	})
+	}).sort("Timestamp", pymongo.DESCENDING)[0]
 
 def insertQuery(Msg, MobNo):
 	count = records.insert_one({
